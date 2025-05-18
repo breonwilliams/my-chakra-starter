@@ -34,7 +34,6 @@ function Contact() {
         bg={colorMode === 'dark' ? "gray.700" : "white"}
         p={8}
         borderRadius="lg"
-        boxShadow="md"
       >
         <FormControl isRequired>
           <FormLabel color={textColor}>Name</FormLabel>

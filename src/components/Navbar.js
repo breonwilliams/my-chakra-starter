@@ -189,7 +189,6 @@ const NavBarContainer = ({ children, ...props }) => {
       mb={[4, 4, 6]}
       p={[4, 6, 8]}
       bg={bgColor}
-      boxShadow="sm"
       {...props}
     >
       {children}

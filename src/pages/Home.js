@@ -26,7 +26,6 @@ function Home() {
           alignItems="center"
           bg={formBackground}
           borderRadius="lg"
-          boxShadow="md"
         >
           <Heading size={["xl", "2xl"]} color={textColor} textAlign="center">Chakra UI Starter</Heading>
           <Text color={textColor} fontSize={["md", "lg"]} textAlign="center">Welcome to your new Chakra UI application!</Text>
@@ -37,7 +36,7 @@ function Home() {
             py={[5, 6]}
             colorScheme="purple"
             fontWeight="medium"
-            _hover={{ transform: 'translateY(-2px)', boxShadow: 'md' }}
+            _hover={{ transform: 'translateY(-2px)' }}
             transition="all 0.2s"
           >
             Toggle {colorMode === 'light' ? 'Dark' : 'Light'} Mode

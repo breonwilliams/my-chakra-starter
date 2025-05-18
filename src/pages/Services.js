@@ -28,7 +28,6 @@ function Services() {
           <Box 
             key={i}
             p={5}
-            shadow="md"
             borderWidth="1px"
             borderRadius="lg"
             bg={cardBg}

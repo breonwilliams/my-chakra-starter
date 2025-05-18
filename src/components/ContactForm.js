@@ -40,7 +40,6 @@ function ContactForm({ isDark }) {
         maxWidth="500px" 
         borderWidth={1} 
         borderRadius={8} 
-        boxShadow="lg"
         bg={isDark ? 'gray.800' : 'white'}
       >
         <Box textAlign="center">
