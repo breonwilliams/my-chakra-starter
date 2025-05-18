@@ -4,11 +4,11 @@ import {
   Flex, 
   Text, 
   Stack, 
-  Link,
   IconButton,
   useColorMode
 } from '@chakra-ui/react';
 import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons';
+import { Link as RouterLink, useLocation } from 'react-router-dom';
 
 const Navbar = (props) => {
   const [isOpen, setIsOpen] = React.useState(false);
@@ -19,6 +19,8 @@ const Navbar = (props) => {
   return (
     <NavBarContainer {...props}>
       <Text
+        as={RouterLink}
+        to="/"
         fontSize={["lg", "xl", "2xl"]}
         fontWeight="bold"
         color={textColor}
@@ -48,13 +50,29 @@ const MenuToggle = ({ toggle, isOpen, colorMode }) => {
 };
 
 const MenuItem = ({ children, to = "/", colorMode, ...rest }) => {
+  const location = useLocation();
   const color = colorMode === 'dark' ? "white" : "gray.800";
+  const isActive = location.pathname === to;
+  
   return (
-    <Link href={to} style={{ textDecoration: 'none' }}>
-      <Text display="block" color={color} fontSize="md" fontWeight="medium" px={2} py={1} {...rest}>
-        {children}
-      </Text>
-    </Link>
+    <Text
+      as={RouterLink}
+      to={to}
+      display="block"
+      color={color}
+      fontWeight={isActive ? "bold" : "medium"}
+      borderBottom={isActive ? "2px solid" : "none"}
+      borderColor={colorMode === 'dark' ? "purple.300" : "purple.500"}
+      px={2}
+      py={1}
+      _hover={{
+        textDecoration: 'none',
+        color: colorMode === 'dark' ? "purple.300" : "purple.500",
+      }}
+      {...rest}
+    >
+      {children}
+    </Text>
   );
 };
 
@@ -91,10 +109,10 @@ const NavBarContainer = ({ children, ...props }) => {
       justify="space-between"
       wrap="wrap"
       w="100%"
-      mb={[4, 4, 6]} // Reduced spacing between navbar and content
-      p={[4, 6, 8]}  // Responsive padding that's smaller on mobile
+      mb={[4, 4, 6]}
+      p={[4, 6, 8]}
       bg={bgColor}
-      boxShadow="sm"  // Light shadow for depth
+      boxShadow="sm"
       {...props}
     >
       {children}
