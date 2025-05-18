@@ -8,15 +8,17 @@ function Card({ title, children, colorMode }) {
 
   return (
     <Box
-      p={5}
+      p={[5, 6]}
       shadow="md"
       borderWidth="1px"
       borderRadius="md"
       bg={bgColor}
       borderColor={borderColor}
+      transition="all 0.2s"
+      _hover={{ transform: 'translateY(-4px)', shadow: 'lg' }}
     >
-      <Heading fontSize="xl" color={textColor}>{title}</Heading>
-      <Text mt={4} color={textColor}>{children}</Text>
+      <Heading fontSize={["lg", "xl"]} color={textColor} mb={4}>{title}</Heading>
+      <Text color={textColor} fontSize={["sm", "md"]}>{children}</Text>
     </Box>
   );
 }
