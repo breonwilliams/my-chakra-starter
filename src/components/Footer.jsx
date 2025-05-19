@@ -20,7 +20,8 @@ const Footer = () => {
   const borderColor = useColorModeValue('gray.200', 'gray.800');
   const textColor = useColorModeValue('gray.600', 'gray.300');
   const linkColor = useColorModeValue('gray.700', 'gray.300');
-  const linkHoverColor = useColorModeValue('lime.500', 'lime.500');
+  const linkHoverColor = useColorModeValue('#09090b', 'lime.500');
+  const socialIconHoverColor = useColorModeValue('#09090b', 'lime.500');
   
   const currentYear = new Date().getFullYear();
   
@@ -65,7 +66,7 @@ const Footer = () => {
         transition="all 0.3s ease"
         _hover={{
           bg: useColorModeValue('blackAlpha.200', 'whiteAlpha.300'),
-          color: linkHoverColor,
+          color: socialIconHoverColor,
           transform: 'translateY(-2px)'
         }}
         icon={icon}
