@@ -3,8 +3,9 @@ import React from 'react';
 import { Box, Flex, Stat, StatLabel, StatNumber, StatHelpText, useColorModeValue } from '@chakra-ui/react';
 
 export const StatCard = ({ label, value, helpText, icon, ...rest }) => {
-  const bg = useColorModeValue('white', 'gray.800');
-  const borderColor = useColorModeValue('gray.200', 'gray.700');
+  const bg = useColorModeValue('white', '#09090b');
+  const borderColor = useColorModeValue('#e4e4e7', '#27272a');
+  const colorMode = useColorModeValue('#27272a', 'lime.500');
   
   return (
     <Box
@@ -26,7 +27,7 @@ export const StatCard = ({ label, value, helpText, icon, ...rest }) => {
             )}
           </Box>
           {icon && (
-            <Box color="purple.500" fontSize="3xl">
+            <Box color={colorMode} fontSize="3xl">
               {icon}
             </Box>
           )}

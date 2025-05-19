@@ -5,8 +5,8 @@ import { ChevronRightIcon } from '@chakra-ui/icons';
 import { Link as RouterLink } from 'react-router-dom';
 
 export const Breadcrumbs = ({ items = [] }) => {
-  const color = useColorModeValue('gray.600', 'gray.400');
-  const activeColor = useColorModeValue('purple.600', 'purple.300');
+  const color = useColorModeValue('ghost', 'ghost');
+  const activeColor = useColorModeValue('ghost', 'ghost');
   
   return (
     <Breadcrumb

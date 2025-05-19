@@ -12,7 +12,7 @@ import {
 function Services() {
   const { colorMode } = useColorMode();
   const textColor = colorMode === 'dark' ? "white" : "gray.800";
-  const cardBg = colorMode === 'dark' ? "gray.700" : "white";
+  const cardBg = colorMode === 'dark' ? "black" : "white";
   
   return (
     <Container maxW="container.xl" py={[8, 10]}>

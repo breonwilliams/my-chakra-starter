@@ -18,8 +18,8 @@ export const Pagination = ({
   onPageChange,
   ...rest 
 }) => {
-  const textColor = useColorModeValue('gray.600', 'gray.400');
-  const activeColor = useColorModeValue('purple.600', 'purple.300');
+  const textColor = useColorModeValue('gray.600', 'white');
+  const activeColor = useColorModeValue('ghost', 'ghost');
   
   const handlePageChange = (page) => {
     if (page >= 1 && page <= totalPages) {
@@ -49,7 +49,7 @@ export const Pagination = ({
                 onClick={() => handlePageChange(1)}
                 size="md"
                 variant="ghost"
-                colorScheme="purple"
+                colorScheme="ghost"
                 display={{ base: "none", sm: "flex" }}
               >
                 1
@@ -66,7 +66,7 @@ export const Pagination = ({
               onClick={() => handlePageChange(currentPage - 1)}
               size="md"
               variant="ghost"
-              colorScheme="purple"
+              colorScheme="ghost"
               display={{ base: "none", sm: "flex" }}
             >
               {currentPage - 1}
@@ -76,7 +76,7 @@ export const Pagination = ({
           <Button 
             size="md"
             variant="solid"
-            colorScheme="purple"
+            colorScheme="ghost"
             aria-current="page"
           >
             {currentPage}
@@ -87,7 +87,7 @@ export const Pagination = ({
               onClick={() => handlePageChange(currentPage + 1)}
               size="md"
               variant="ghost"
-              colorScheme="purple"
+              colorScheme="ghost"
               display={{ base: "none", sm: "flex" }}
             >
               {currentPage + 1}
@@ -104,7 +104,7 @@ export const Pagination = ({
                 onClick={() => handlePageChange(totalPages)}
                 size="md"
                 variant="ghost"
-                colorScheme="purple"
+                colorScheme="ghost"
                 display={{ base: "none", sm: "flex" }}
               >
                 {totalPages}
@@ -119,7 +119,7 @@ export const Pagination = ({
             size="md"
             variant="ghost"
             aria-label="Next page"
-            colorScheme="purple"
+            colorScheme="ghost"
           />
         </HStack>
       </Center>

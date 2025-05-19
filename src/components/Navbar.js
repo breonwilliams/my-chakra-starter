@@ -122,12 +122,12 @@ const MenuItem = ({ children, to = "/", colorMode, ...rest }) => {
       color={color}
       fontWeight={isActive ? "bold" : "medium"}
       borderBottom={isActive ? "2px solid" : "none"}
-      borderColor={colorMode === 'dark' ? "purple.300" : "purple.500"}
+      borderColor={colorMode === 'dark' ? "lime.400" : "lime.500"} // Changed from purple to lime
       px={2}
       py={1}
       _hover={{
         textDecoration: 'none',
-        color: colorMode === 'dark' ? "purple.300" : "purple.500",
+        color: colorMode === 'dark' ? "lime.400" : "lime.600", // Changed from purple to lime
       }}
       {...rest}
     >
@@ -177,7 +177,7 @@ const MobileMenu = ({ isOpen, colorMode }) => {
 
 const NavBarContainer = ({ children, ...props }) => {
   const { colorMode } = useColorMode();
-  const bgColor = colorMode === 'dark' ? "gray.800" : "white";
+  const bgColor = colorMode === 'dark' ? "#09090b" : "white"; // Changed to match Chakra UI site
   
   return (
     <Flex
@@ -189,6 +189,8 @@ const NavBarContainer = ({ children, ...props }) => {
       mb={[4, 4, 6]}
       p={[4, 6, 8]}
       bg={bgColor}
+      borderBottomWidth="1px"
+      borderColor={colorMode === 'dark' ? '#27272a' : '#e4e4e7'}
       {...props}
     >
       {children}

@@ -15,11 +15,12 @@ import { Link as RouterLink } from 'react-router-dom';
 import { FaTwitter, FaLinkedin, FaGithub } from 'react-icons/fa';
 
 const Footer = () => {
-  const bg = useColorModeValue('gray.50', 'gray.900');
-  const borderColor = useColorModeValue('gray.200', 'gray.700');
-  const textColor = useColorModeValue('gray.600', 'gray.400');
+  // Updated color values
+  const bg = useColorModeValue('gray.50', '#09090b');
+  const borderColor = useColorModeValue('gray.200', 'gray.800');
+  const textColor = useColorModeValue('gray.600', 'gray.300');
   const linkColor = useColorModeValue('gray.700', 'gray.300');
-  const linkHoverColor = useColorModeValue('purple.600', 'purple.300');
+  const linkHoverColor = useColorModeValue('lime.500', 'lime.500');
   
   const currentYear = new Date().getFullYear();
   
@@ -48,7 +49,8 @@ const Footer = () => {
   const SocialButton = ({ icon, label, href }) => {
     return (
       <IconButton
-        bg={useColorModeValue('blackAlpha.100', 'whiteAlpha.100')}
+        bg={useColorModeValue('blackAlpha.100', 'whiteAlpha.200')}
+        color={useColorModeValue('gray.700', 'white')}
         rounded="full"
         w={8}
         h={8}
@@ -60,10 +62,11 @@ const Footer = () => {
         display="inline-flex"
         alignItems="center"
         justifyContent="center"
-        transition="background 0.3s ease"
+        transition="all 0.3s ease"
         _hover={{
-          bg: useColorModeValue('blackAlpha.200', 'whiteAlpha.200'),
-          color: linkHoverColor
+          bg: useColorModeValue('blackAlpha.200', 'whiteAlpha.300'),
+          color: linkHoverColor,
+          transform: 'translateY(-2px)'
         }}
         icon={icon}
         aria-label={label}

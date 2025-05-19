@@ -3,7 +3,7 @@ import { Box, Heading, Text } from '@chakra-ui/react';
 
 function Card({ title, children, colorMode }) {
   const bgColor = colorMode === 'dark' ? "gray.800" : "white";
-  const borderColor = colorMode === 'dark' ? "gray.700" : "gray.200";
+  const borderColor = colorMode === 'dark' ? "#27272a" : "#e4e4e7";
   const textColor = colorMode === 'dark' ? "white" : "gray.800";
 
   return (

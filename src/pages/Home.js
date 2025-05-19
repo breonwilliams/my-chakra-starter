@@ -22,8 +22,8 @@ import { useForm } from 'react-hook-form';
 
 function Home() {
   const { colorMode, toggleColorMode } = useColorMode();
-  const formBackground = colorMode === 'dark' ? "gray.700" : "gray.100";
-  const textColor = colorMode === 'dark' ? "white" : "gray.800";
+  const formBackground = colorMode === 'dark' ? "#09090b" : "white"; // Darker gray for dark mode
+  const textColor = colorMode === 'dark' ? "white" : "#09090b";
   const { showToast } = useCustomToast();
   const { register, formState: { errors } } = useForm();
   const [currentPage, setCurrentPage] = useState(1);
@@ -53,6 +53,9 @@ function Home() {
           alignItems="center"
           bg={formBackground}
           borderRadius="lg"
+          boxShadow="sm"
+          borderWidth="1px"
+          borderColor={colorMode === 'dark' ? "#27272a" : "#e4e4e7"}
         >
           <Heading size={["xl", "2xl"]} color={textColor} textAlign="center">Chakra UI Component Library</Heading>
           <Text color={textColor} fontSize={["md", "lg"]} textAlign="center">
@@ -63,8 +66,8 @@ function Home() {
             size={["md", "lg"]}
             px={[6, 8, 10]}
             py={[5, 6]}
-            colorScheme="purple"
-            fontWeight="medium"
+            colorScheme="lime"
+            fontWeight="bold"
             _hover={{ transform: 'translateY(-2px)' }}
             transition="all 0.2s"
           >
@@ -76,15 +79,15 @@ function Home() {
         <VStack spacing={12} align="stretch">
           {/* Navigation Components */}
           <Box>
-            <Heading as="h2" size="xl" mb={6} pb={2} borderBottomWidth="2px" borderColor="purple.500">
+            <Heading as="h2" size="xl" mb={6} pb={2} borderBottomWidth="2px" borderColor="lime.500">
               Navigation Components
             </Heading>
 
             <Box mb={8}>
-              <Heading as="h3" size="md" mb={4} color="purple.500">
+              <Heading as="h3" size="md" mb={4}>
                 Breadcrumbs
               </Heading>
-              <Box p={4} borderWidth="1px" borderRadius="md">
+              <Box p={4} borderWidth="1px" borderRadius="md"  borderColor={colorMode === 'dark' ? "#27272a" : "#e4e4e7"} bg={colorMode === 'dark' ? "#09090b" : "white"}>
                 <Breadcrumbs
                   items={[
                     { label: 'Home', path: '/' },
@@ -98,12 +101,12 @@ function Home() {
 
           {/* Data Display Components */}
           <Box>
-            <Heading as="h2" size="xl" mb={6} pb={2} borderBottomWidth="2px" borderColor="purple.500">
+            <Heading as="h2" size="xl" mb={6} pb={2} borderBottomWidth="2px" borderColor="lime.500">
               Data Display Components
             </Heading>
 
             <Box mb={8}>
-              <Heading as="h3" size="md" mb={4} color="purple.500">
+              <Heading as="h3" size="md" mb={4}>
                 Hover Card
               </Heading>
               <SimpleGrid columns={{ base: 1, md: 3 }} spacing={6}>
@@ -123,7 +126,7 @@ function Home() {
             </Box>
 
             <Box mb={8}>
-              <Heading as="h3" size="md" mb={4} color="purple.500">
+              <Heading as="h3" size="md" mb={4}>
                 Stat Cards
               </Heading>
               <SimpleGrid columns={{ base: 1, md: 4 }} spacing={6}>
@@ -157,30 +160,30 @@ function Home() {
 
           {/* Feedback Components */}
           <Box>
-            <Heading as="h2" size="xl" mb={6} pb={2} borderBottomWidth="2px" borderColor="purple.500">
+            <Heading as="h2" size="xl" mb={6} pb={2} borderBottomWidth="2px" borderColor="lime.500">
               Feedback Components
             </Heading>
 
             <Box mb={8}>
-              <Heading as="h3" size="md" mb={4} color="purple.500">
+              <Heading as="h3" size="md" mb={4}>
                 Toast Notifications
               </Heading>
-              <Box p={4} borderWidth="1px" borderRadius="md" mb={4}>
-                <Button onClick={showSuccessToast} colorScheme="purple">
+              <Box p={4} borderWidth="1px" borderRadius="md" mb={4} bg={colorMode === 'dark' ? "#09090b" : "white"}>
+                <Button onClick={showSuccessToast} colorScheme="lime">
                   Show Toast Notification
                 </Button>
               </Box>
             </Box>
 
             <Box mb={8}>
-              <Heading as="h3" size="md" mb={4} color="purple.500">
+              <Heading as="h3" size="md" mb={4}>
                 Loading Spinner
               </Heading>
-              <Box p={4} borderWidth="1px" borderRadius="md" mb={4}>
+              <Box p={4} borderWidth="1px" borderRadius="md" mb={4} bg={colorMode === 'dark' ? "#09090b" : "white"}>
                 {isLoading ? (
                   <LoadingSpinner text="Loading data..." height="200px" />
                 ) : (
-                  <Button onClick={toggleLoading} colorScheme="purple">
+                  <Button onClick={toggleLoading} colorScheme="lime">
                     Show Loading Spinner
                   </Button>
                 )}
@@ -190,15 +193,15 @@ function Home() {
 
           {/* Form Components */}
           <Box>
-            <Heading as="h2" size="xl" mb={6} pb={2} borderBottomWidth="2px" borderColor="purple.500">
+            <Heading as="h2" size="xl" mb={6} pb={2} borderBottomWidth="2px" borderColor="lime.500">
               Form Components
             </Heading>
 
             <Box mb={8}>
-              <Heading as="h3" size="md" mb={4} color="purple.500">
+              <Heading as="h3" size="md" mb={4}>
                 Input Field
               </Heading>
-              <Box p={4} borderWidth="1px" borderRadius="md" mb={4} maxW="md">
+              <Box p={4} borderWidth="1px" borderRadius="md" mb={4} maxW="md" bg={colorMode === 'dark' ? "#09090b" : "white"}>
                 <InputField
                   label="Username"
                   name="username"
@@ -211,10 +214,10 @@ function Home() {
             </Box>
 
             <Box mb={8}>
-              <Heading as="h3" size="md" mb={4} color="purple.500">
+              <Heading as="h3" size="md" mb={4}>
                 Select Field
               </Heading>
-              <Box p={4} borderWidth="1px" borderRadius="md" mb={4} maxW="md">
+              <Box p={4} borderWidth="1px" borderRadius="md" mb={4} maxW="md" bg={colorMode === 'dark' ? "#09090b" : "white"}>
                 <SelectField
                   label="Country"
                   name="country"
@@ -233,16 +236,16 @@ function Home() {
 
           {/* Marketing Components */}
           <Box>
-            <Heading as="h2" size="xl" mb={6} pb={2} borderBottomWidth="2px" borderColor="purple.500">
+            <Heading as="h2" size="xl" mb={6} pb={2} borderBottomWidth="2px" borderColor="lime.500">
               Marketing Components
             </Heading>
 
             <Box mb={8}>
-              <Heading as="h3" size="md" mb={4} color="purple.500">
+              <Heading as="h3" size="md" mb={4}>
                 Hero Section
               </Heading>
-              <Box p={4} borderWidth="1px" borderRadius="md" mb={4}>
-                <Section bg={colorMode === 'dark' ? 'gray.700' : 'gray.100'} py={8} borderRadius="md">
+              <Box p={4} borderWidth="1px" borderRadius="md" mb={4} borderColor={colorMode === 'dark' ? "#27272a" : "#e4e4e7"} bg={colorMode === 'dark' ? "#09090b" : "white"}>
+                <Section bg={colorMode === 'dark' ? '#09090B' : 'white'} py={8} borderRadius="md">
                   <VStack spacing={4} textAlign="center" p={6}>
                     <Heading size="2xl">Build Amazing UIs</Heading>
                     <Text fontSize="xl" maxW="2xl" mx="auto">
@@ -255,12 +258,12 @@ function Home() {
                       spacing={4}
                       width={{ base: '100%', sm: 'auto' }}
                     >
-                      <Button colorScheme="purple" width={{ base: '100%', sm: 'auto' }}>
+                      <Button colorScheme="lime" width={{ base: '100%', sm: 'auto' }}>
                         Primary Action
                       </Button>
                       <Button
                         variant="outline"
-                        colorScheme="purple"
+                        colorScheme="lime"
                         width={{ base: '100%', sm: 'auto' }}
                       >
                         Secondary Action
@@ -274,16 +277,16 @@ function Home() {
 
           {/* Layout Components */}
           <Box>
-            <Heading as="h2" size="xl" mb={6} pb={2} borderBottomWidth="2px" borderColor="purple.500">
+            <Heading as="h2" size="xl" mb={6} pb={2} borderBottomWidth="2px" borderColor="lime.500">
               Layout Components
             </Heading>
 
             <Box mb={8}>
-              <Heading as="h3" size="md" mb={4} color="purple.500">
+              <Heading as="h3" size="md" mb={4}>
                 Section Component
               </Heading>
-              <Box p={4} borderWidth="1px" borderRadius="md" mb={4}>
-                <Section bg={colorMode === 'dark' ? 'gray.700' : 'gray.100'} p={6} borderRadius="md">
+              <Box p={4} borderWidth="1px" borderRadius="md" mb={4} borderColor={colorMode === 'dark' ? "#27272a" : "#e4e4e7"} bg={colorMode === 'dark' ? "#09090b" : "white"}>
+                <Section bg={colorMode === 'dark' ? '#09090b' : 'white'} p={6} borderRadius="md">
                   <Heading size="md">Section Component</Heading>
                   <Text mt={2}>This is a section component with custom background</Text>
                 </Section>
@@ -293,15 +296,15 @@ function Home() {
 
           {/* Additional Navigation Components */}
           <Box>
-            <Heading as="h2" size="xl" mb={6} pb={2} borderBottomWidth="2px" borderColor="purple.500">
+            <Heading as="h2" size="xl" mb={6} pb={2} borderBottomWidth="2px" borderColor="lime.500">
               Additional Navigation
             </Heading>
 
             <Box mb={8}>
-              <Heading as="h3" size="md" mb={4} color="purple.500">
+              <Heading as="h3" size="md" mb={4}>
                 Pagination
               </Heading>
-              <Box p={4} borderWidth="1px" borderRadius="md" mb={4}>
+              <Box p={4} borderWidth="1px" borderRadius="md" mb={4} borderColor={colorMode === 'dark' ? "#27272a" : "#e4e4e7"} bg={colorMode === 'dark' ? "#09090b" : "white"}>
                 <Pagination
                   currentPage={currentPage}
                   totalPages={10}
